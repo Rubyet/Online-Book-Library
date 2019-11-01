@@ -1,6 +1,6 @@
 //DECLARATION
 var express  	= require('express');
-var ejs  		= require('ejs');
+
 var bodyParse  	= require('body-parser');
 var exSession  	= require('express-session');
 var cookieParser= require('cookie-parser');
@@ -26,6 +26,10 @@ app.use('/logout', logout);
 app.get('/', function(req, res){
 	res.send('<h2>hello from express</h2>');
 });
+
+app.get('/register',function(req,res){
+	res.render('authentication/registration.ejs');
+})
 
 
 //SERVER STARTUP
