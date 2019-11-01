@@ -1,6 +1,7 @@
 //DECLARATION
 var express  	= require('express');
 var ejs  		= require('ejs');
+var path 		= require('path');
 var bodyParse  	= require('body-parser');
 var exSession  	= require('express-session');
 var cookieParser= require('cookie-parser');
@@ -14,6 +15,8 @@ var app 		= express();
 app.set('view engine', 'ejs');
 
 //MIDDLEWARE
+app.use(express.static(path.join(__dirname, '/views/css')));
+app.use(express.static(path.join(__dirname, '/views/images')));
 app.use(bodyParse.urlencoded({extended:false}));
 app.use(exSession({secret:"my top secret value", saveUninitialized:true, resave:false}));
 app.use(cookieParser());

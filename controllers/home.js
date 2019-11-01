@@ -4,14 +4,12 @@ var router = express.Router();
 
 router.get('/', function(req, res){
 
-		//var sql = "select * from user";
-		//db.getResults(sql, function(results){
-		//if(req.cookies['username'] != null){
+		var sql = "select * from bookdetails";
+		db.getResults(sql, function(results){
+			
 			res.render('home/index', {user: results});
-		//}else{
-			//	res.redirect('/login');
-			//}	
-		//});
+	
+		});
 });
 
 
