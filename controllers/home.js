@@ -4,10 +4,11 @@ var router = express.Router();
 
 router.get('/', function(req, res){
 
-		var sql = "select * from bookdetails";
-		db.getResults(sql, function(results){
+		var sql = "SELECT * FROM bookdetails";
+		db.getResults(sql,[], function(results){
 			
-			res.render('home/index', {user: results});
+			console.log("from home.js"+ results);
+			res.render('home/index', {bookdetails: results});
 	
 		});
 });

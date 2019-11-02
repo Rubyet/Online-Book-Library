@@ -3,7 +3,7 @@ body {
 	font-size: 12px;
 	color: #333333;
 	background-color: #FFFFFF;
-	background-image: url(../images/top-rept2.jpg);
+	background-image: url(top-rept2.jpg);
 	background-repeat: repeat-x;
 	background-position: left top;
 	margin: 0px;
@@ -21,7 +21,7 @@ a:hover {
 	text-decoration: none;
 }
 .main {
-	background-image: url(../images/bottom-rept.jpg);
+	background-image: url(bottom-rept.jpg);
 	background-repeat: repeat-x;
 	background-position: left bottom;
 	width: 100%;
@@ -90,13 +90,13 @@ a:hover {
 .header-top ul li a:hover {
 	color: #000000;
 	background-color: #84c43a;
-	background-image: url(../images/menu-left.jpg);
+	background-image: url(menu-left.jpg);
 	background-repeat: no-repeat;
 	background-position: left top;
 }
 .header-top ul li a:hover span {
 	background-color: #84c43a;
-	background-image: url(../images/menu-right.jpg);
+	background-image: url(menu-right.jpg);
 	background-repeat: no-repeat;
 	background-position: right top;
 }
@@ -150,7 +150,7 @@ a:hover {
 }
 .section1 {
 	font-size: 11px;
-	background-image: url(../images/sec1bg.jpg);
+	background-image: url(sec1bg.jpg);
 	background-repeat: no-repeat;
 	background-position: left top;
 	width: 171px;
@@ -164,7 +164,7 @@ a:hover {
 }
 .section2 {
 	font-size: 11px;
-	background-image: url(../images/sec2bg.jpg);
+	background-image: url(sec2bg.jpg);
 	background-repeat: no-repeat;
 	background-position: left top;
 	width: 171px;
@@ -179,7 +179,7 @@ a:hover {
 }
 .section3 {
 	font-size: 11px;
-	background-image: url(../images/sec3bg.jpg);
+	background-image: url(sec3bg.jpg);
 	background-repeat: no-repeat;
 	background-position: left top;
 	width: 171px;
@@ -194,7 +194,7 @@ a:hover {
 }
 .section4 {
 	font-size: 11px;
-	background-image: url(../images/sec4bg.jpg);
+	background-image: url(sec4bg.jpg);
 	background-repeat: no-repeat;
 	background-position: left top;
 	width: 172px;
@@ -214,7 +214,7 @@ a.more:hover {
 	text-decoration: underline;
 }
 .footer {
-	background-image: url(../images/footer-img.jpg);
+	background-image: url(footer-img.jpg);
 	background-repeat: no-repeat;
 	background-position: left top;
 	width: 899px;
