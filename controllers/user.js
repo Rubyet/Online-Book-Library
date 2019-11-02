@@ -1,8 +1,8 @@
 var express = require('express');
 var userModel = require('./../models/user-model');
 var router = express.Router();
-
-
+var multer = require('multer');
+var db = require('./../models/db.js');
 
 router.get('/userlist', function(req, res){
 
@@ -16,6 +16,17 @@ router.get('/userlist', function(req, res){
 });
 
 
+router.get('/index', function(req, res){
+		
+		var sql = "SELECT * FROM bookdetails ORDER BY id DESC";
+		db.getResults(sql,[], function(results){
+			console.log(results[1].image);
+			res.render('user/index', {bookdetails: results});
+	
+		});
+});
+
+
 //router.get('/adduser', function(req, res){
 //	res.render('user/adduser');
 //});
@@ -23,19 +34,37 @@ router.get('/userlist', function(req, res){
 router.get('/reg', function(req, res){
 	res.render('user/reg');
 });
-router.post('/reg', function(req, res){
 
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+	  
+    cb(null, 'upload/image/')
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname)
+  }
+})
+console.log(storage);
+var upload = multer({ storage: storage });
+
+
+router.post('/reg',function(req, res){
+	console.log(req.body.type);
 	var user = {
 		username: req.body.username,
+		address: req.body.address,
+		phone: req.body.phone,
+		email: req.body.email,
 		password: req.body.password,
-		type: req.body.type,
-		email: req.body.email
+		image : req.body.image,
+		type: req.body.type
+		
 	};
-
 	userModel.insert(user, function(status){
 		if(status){
-			res.redirect('/user/userlist');
+			res.redirect('/Home');
 		}else{
+			console.log("error in sql");
 			res.redirect('user/reg');
 		}
 	});

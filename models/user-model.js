@@ -16,12 +16,12 @@ module.exports={
 		});
 	},
 	validate: function(user, callback){
-		var sql = "select * from user where username=? and password=?";
+		var sql = "select * from userdetails where name=? and password=?";
 
 		db.getResults(sql, [user.username, user.password], function(result){
-
+			console.log();
 			if(result.length > 0 ) {
-				callback(true);
+				callback(true,result[0].id);
 			}else{
 				callback(false);
 			}
@@ -40,8 +40,10 @@ module.exports={
 		});
 	},
 	insert : function(user, callback){
-		var sql = "insert into user values('', ?, ?, ?, ?)";
-		db.execute(sql, [user.username, user.password, user.type, user.email], function(status){
+		console.log("user :"+user.username + user.type);
+		var sql = "INSERT INTO `userdetails` VALUES (NULL, '"+user.username+"', '"+user.address+"', '"+user.phone+"', '"+user.email+"', '"+user.password+"', '"+user.type+"', NULL, '"+user.image+"')";
+		db.execute(sql,[], function(status){
+			console.log(sql);
 			callback(status);
 		});
 	},

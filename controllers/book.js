@@ -1,77 +1,57 @@
 var express = require('express');
-var userModel = require('./../models/book-model');
+var bookModel = require('./../models/book-model');
 var router = express.Router();
 
 
 
-router.get('/userlist', function(req, res){
+router.get('/', function(req, res){
 
-		userModel.getAll(function(results){
-			if(req.cookies['username'] != null){
-				res.render('user/index', {user: results});
-			}else{
-				res.redirect('/blog');
-			}
+		bookModel.getAll(function(results){
+			
+				res.render('book/book', {book: results});
+	
+			
 		});
 });
 
-
-//router.get('/adduser', function(req, res){
-//	res.render('user/adduser');
-//});
-
 router.get('/reg', function(req, res){
-	res.render('user/reg');
+	res.render('book/reg');
 });
 router.post('/reg', function(req, res){
 
-	var user = {
+	var book = {
 		username: req.body.username,
 		password: req.body.password,
 		type: req.body.type,
 		email: req.body.email
 	};
 
-	userModel.insert(user, function(status){
+	bookModel.insert(book, function(status){
 		if(status){
-			res.redirect('/user/userlist');
+			res.redirect('/book/userlist');
 		}else{
-			res.redirect('user/reg');
+			res.redirect('book/reg');
 		}
 	});
 });
 
-router.get('/edit/:id', function(req, res){
+router.get('/bookdetails/:id', function(req, res){
 
-	userModel.getById(req.params.id, function(results){
-		res.render('user/edit', {user: results[0]});
-	});
-
-});
-
-router.post('/edit/:id', function(req, res){
-	
-	var user = {
-		username: req.body.username,
-		password: req.body.password,
-		id: req.params.id
-	};
-
-	userModel.update(user, function(status){
-
-		if(status){
-			res.redirect('/user/userlist');
-		}else{
-			res.redirect('/user/adduser');
-		}
-	});
-});
-
-router.get('/details/:id', function(req, res){
-
-	userModel.getById(req.params.id, function(result){
+		bookModel.getById(req.params.id, function(result){
 		console.log(result);
-		res.render('user/details', {user: result});
+		res.render('book/bookdetails', {book: result});
+	});
+});
+
+router.get('/booksearch/:id', function(req, res){
+		
+		console.log("Sending value as id "+req.params.id);
+		bookModel.getAllById(req.params.id, function(result){
+			
+			console.log(result);
+			res.render('search/index', {book: result});
+			
+		
 	});
 });
 

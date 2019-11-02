@@ -11,14 +11,17 @@ var book  		= require('./controllers/book');
 var login  		= require('./controllers/login');
 var logout  	= require('./controllers/logout');
 var app 		= express();
+//var upload = require('express-fileupload');
 
 //CONGIFURATION
 app.set('view engine', 'ejs');
 
 //MIDDLEWARE
+//app.use(upload());
 app.use(express.static(path.join(__dirname, '/views/css')));
-app.use(express.static(path.join(__dirname, '/views/images')));
 app.use(express.static(path.join(__dirname, '/upload')));
+app.use(express.static(path.join(__dirname, '/views/images')));
+
 app.use(bodyParse.urlencoded({extended:false}));
 app.use(exSession({secret:"my top secret value", saveUninitialized:true, resave:false}));
 app.use(cookieParser());

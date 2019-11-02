@@ -28,45 +28,21 @@
 	
 	<div class="sections">
 		<h2>All Catagory<br><br></h2>
-			<div class="section1">
+		
+			<% for(var i=0; i< book.length; i++){ %>
+				<div class="section1">
 				
-				<h3>Book 1</h3>
-				<p>&nbsp;</p>
-				<p>
-					<img src="header.jpg" alt="HTML5 Icon" width="170" height="200"><br>
-				</p>
-				<p>&nbsp;</p>
-				<p><a href="#" class="more">Read Details</a></p>
-			</div>
-			<div class="section2">
-				<h3>Book 2</h3>
-				<p>&nbsp;</p>
-				<p>
-					<img src="header.jpg" alt="HTML5 Icon" width="170" height="200"> <br>
-				</p>
-				<p>&nbsp;</p>
-				<p><a href="#" class="more">Read Details</a></p>
-			</div>
-			<div class="section3">
-				<h3>Book 3</h3>
-				<p>&nbsp;</p>
-				<p>
-					<img src="header.jpg" alt="HTML5 Icon" width="170" height="200"><br>
-				</p>
-				<p>&nbsp;</p>
-				<p><a href="#" class="more">Read Details</a></p>
-			</div>
-			<div class="section4">
-				<h3>Book 4</h3>
-				<p>&nbsp;</p>
-				<p>
-					<img src="header.jpg" alt="HTML5 Icon" width="170" height="200"><br>
-				</p>
-				<p>&nbsp;</p>
-				<p><a href="#" class="more">Read Details</a></p>
-			</div>
+					<h3><%= book[i].name %></h3>
+					<p>&nbsp;</p>
+					<p>
+						<img src="image/<%= book[i].image %>" alt="HTML5 Icon" width="170" height="200"><br>
+					</p>
+					<p>&nbsp;</p>
+					<p><a href="/book/bookdetails/<%= book[i].id %>" class="more">Read Details</a></p>
+				</div>
+			<% } %>
 			
-		</div>
+	</div>
 	
 	
 	

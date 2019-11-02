@@ -4,7 +4,7 @@ var router = express.Router();
 
 router.get('/', function(req, res){
 
-		var sql = "SELECT * FROM bookdetails";
+		var sql = "SELECT * FROM bookdetails ORDER BY id DESC";
 		db.getResults(sql,[], function(results){
 			
 			console.log("from home.js"+ results);
