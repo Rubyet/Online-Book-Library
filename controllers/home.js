@@ -26,7 +26,8 @@ router.post('/',function(req, res){
 	var sql = "SELECT * FROM bookdetails WHERE name LIKE '%"+search+"%'";
 	console.log(sql);
 		db.getResults(sql,[], function(results){
-			res.render('book/bookSearch', {book: results});	
+			var id2 = req.cookies['id'];
+			res.render('book/bookSearch', {book: results, id1: id2});	
 		});
 });
 

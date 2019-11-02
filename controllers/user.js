@@ -40,7 +40,7 @@ var storage = multer.diskStorage({
         cb(null, 'upload/image/')
     },
     filename: function (req, file, cb) {
-        cb(null, Date.now()+file.originalname)
+        cb(null, file.originalname)
     }
 });
 
@@ -53,7 +53,7 @@ router.post('/reg',function(req, res){
 		phone: req.body.phone,
 		email: req.body.email,
 		password: req.body.password,
-		image : Date.now()+req.body.image,
+		image : req.body.image,
 		type: req.body.type
 		
 	};
