@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Profile</title>
+  <link href="\style2.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="main">
+	<div class="page-out">
+	<div class="page">
+	<div class="header">
+	<div class="header-top">
+	<h1>Online Book Libray</h1>
+	<ul>
+	  <li><a href="/home"><span>Home</span></a></li>
+	  <li><a href="/user/profile"><span>Profile</span></a></li>
+	  <li> <a href="/logout"><span>Signout</span></a></li>
+	</ul>
+	</div>
+	</div>
+	
+	
+	<div class="content">
+	<div class="left-out">
+	<div class="left-in">
+	<div class="left-panel">
+	<p>
+		<form ">
+			<div class="sections">
+		<h2>Profile<br><br></h2>
+			<div class="section1">
+				
+				<p>&nbsp;</p>
+				<p>
+					<img src="\image\<%= user[0].image %>" alt="HTML5 Icon" width="170" height="200"><br>
+				</p>
+			</div>
+			<div class="profile">
+				<div class="container">
+					<label for="uname"><b>Username</b></label>
+					<input type="text" value="<%= user[0].name %>" name="username" readonly>
+					
+					<label for="uname"><b>Address</b></label>
+					<input type="text" value="<%= user[0].address %>" name="address" readonly>
+					
+					<label for="uname"><b>Phone/Mobile No.</b></label>
+					<input type="text" value="<%= user[0].phone %>" name="phone" readonly>
+					
+					<label for="uname"><b>Email</b></label>
+					<input type="text" value="<%= user[0].email %>" name="email" readonly>
+					
+					<label for="psw"><b>Password</b></label>
+					<input type="password" value="<%= user[0].password %>" name="password" readonly>
+					
+					<label for="uname"><b>Type<br></b></label>
+					<select name="cars" readonly >
+					<% if(user[0].type=="Admin")
+						{
+					%>		<option value="Admin" <%= "selected" %>>Admin</option>
+					<%	}else if(user[0].type=="Member")
+						{
+					%>		<option value="Member" <%= "selected" %>>Member</option>
+					<%	}else
+						{
+					%>		<option value="Moderator" <%= "selected" %>>Moderator</option>
+					<%	}
+					%>
+					</select>
+
+					<a href="/user/edit/<%= user[0].id %>" class="cancelbtn">Edit</a>
+					
+				  </div>
+			</div>
+		</div>
+		  
+
+		  <div class="container" style="background-color:#f1f1f1">
+			<a href="/home" class="cancelbtn">Cancel</a>
+		  </div>
+		</form>
+	<br><br><br>
+	</p>
+
+	</div>
+	</div>
+	</div>
+		
+		
+	</div>
+	<div class="footer">
+	<div class="footer-left">
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p><strong>Contact info</strong></p>
+	<p>&nbsp;</p>
+	<p>If you Like Our Website Consider <a href="#" class="footer-left">DONATE</a></p>
+	</div>
+	<div class="footer-right">
+	<ul>
+	  <li><a href="/home">Home</a>/</li>
+	  <li><a href="#">Go to Top</a>/</li>
+	  <li><a href="#">About</a></li>
+	</ul>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+
+
+</body>
+</html>

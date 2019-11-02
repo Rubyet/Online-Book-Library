@@ -14,13 +14,24 @@
 	<ul>
 	  <li><a href="/home"><span>Home</span></a></li>
 	  <li>
-		<form>
+		<form action="/home" method="post">
 			<input type="text" name="search" >
 			<input type="submit" name= "submit" value="Search">
 		</form>
 	  </li>
-	  <li><a href="/login"><span>Signin</span></a></li>
-	  <li> <a href="/user/reg"><span>Signup</span></a></li>
+	  <%if(id1>0)
+			{
+			%>	
+				<li><a href="/user/profile/<%= id1 %>"><span>profile</span></a></li>
+				<li><a href="/logout"><span>Signout</span></a></li>
+			<%
+			}else
+			{
+			%>	<li><a href="/login"><span>Signin</span></a></li>
+				<li> <a href="/user/reg"><span>Signup</span></a></li>
+			<%
+			}
+		%>
 	</ul>
 	</div>
 	</div>
@@ -35,7 +46,7 @@
 					<h3><%= book[i].name %></h3>
 					<p>&nbsp;</p>
 					<p>
-						<img src="image/<%= book[i].image %>" alt="HTML5 Icon" width="170" height="200"><br>
+						<img src="/image/<%= book[i].image %>" alt="HTML5 Icon" width="170" height="200"><br>
 					</p>
 					<p>&nbsp;</p>
 					<p><a href="/book/bookdetails/<%= book[i].id %>" class="more">Read Details</a></p>
@@ -56,7 +67,7 @@
 	</div>
 	<div class="footer-right">
 	<ul>
-	  <li><a href="index.html">Home</a>/</li>
+	  <li><a href="/home">Home</a>/</li>
 	  <li><a href="#">Go to Top</a>/</li>
 	  <li><a href="#">About</a></li>
 	</ul>

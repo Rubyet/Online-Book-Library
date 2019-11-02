@@ -136,6 +136,14 @@ a:hover {
 .title span {
 	color: #333333;
 }
+.profile {
+	font-size: 15px;
+	width: 500px;
+	height: 100%;
+	float: left;
+	padding: 18px;
+	margin-left: 10px;
+}
 .copyright {
 	border: 0px;
 	height: 1px;

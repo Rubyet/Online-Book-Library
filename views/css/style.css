@@ -96,7 +96,7 @@ a:hover {
 }
 .header-top ul li a:hover span {
 	background-color: #84c43a;
-	background-image: url(menu-right.jpg);
+	background-image: url(../images/menu-right.jpg);
 	background-repeat: no-repeat;
 	background-position: right top;
 }

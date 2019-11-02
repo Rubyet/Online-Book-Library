@@ -57,6 +57,7 @@ router.post('/reg',function(req, res){
 		type: req.body.type
 		
 	};
+	console.log(user.image);
 	upload(req, res, function (err) {
         if (err) {
             console.log( "An error occurred when uploading" );
@@ -64,8 +65,6 @@ router.post('/reg',function(req, res){
     })
 	userModel.insert(user, function(status){
 		if(status){
-			
-	
 			res.redirect('/Home');
 		}else{
 			console.log("error in sql");
@@ -75,15 +74,10 @@ router.post('/reg',function(req, res){
 });
 
 
-
-
-
-
-
 router.get('/edit/:id', function(req, res){
 
 	userModel.getById(req.params.id, function(results){
-		res.render('user/edit', {user: results[0]});
+		res.render('user/edit', {user: results});
 	});
 
 });
@@ -91,26 +85,31 @@ router.get('/edit/:id', function(req, res){
 router.post('/edit/:id', function(req, res){
 	
 	var user = {
+		id: req.params.id,
 		username: req.body.username,
+		address: req.body.address,
+		phone: req.body.phone,
+		email: req.body.email,
 		password: req.body.password,
-		id: req.params.id
+		//image : Date.now()+req.body.image,
+		type: req.body.type
 	};
 
 	userModel.update(user, function(status){
 
 		if(status){
-			res.redirect('/user/userlist');
+			res.redirect("/user/profile/"+req.params.id+"");
 		}else{
-			res.redirect('/user/adduser');
+			res.redirect("/user/edit/"+req.params.id+"");
 		}
 	});
 });
 
-router.get('/details/:id', function(req, res){
+router.get('/profile/:id', function(req, res){
 
 	userModel.getById(req.params.id, function(result){
 		console.log(result);
-		res.render('user/details', {user: result});
+		res.render('user/profile', {user: result});
 	});
 });
 

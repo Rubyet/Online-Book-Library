@@ -4,12 +4,12 @@ module.exports={
 
 	getById: function(id, callback){
 
-		var sql = "select * from user where id=?";
+		var sql = "select * from userdetails where id=?";
 		db.getResults(sql, [id], function(result){
 
 			console.log(result);
 			if(result.length > 0 ){
-				callback(result[0]);
+				callback(result);
 			}else{
 				callback([]);
 			}
@@ -41,13 +41,15 @@ module.exports={
 	},
 	insert : function(user, callback){
 		var sql = "INSERT INTO `userdetails` VALUES (NULL, '"+user.username+"', '"+user.address+"', '"+user.phone+"', '"+user.email+"', '"+user.password+"', '"+user.type+"', NULL, '"+user.image+"')";
+		console.log(sql);
 		db.execute(sql,[], function(status){
 			callback(status);
 		});
 	},
 	update : function(user, callback){
-		var sql = "update user set username=?, password=? where id=?";		
-			db.execute(sql, [user.username, user.password, user.id], function(status){
+		var sql = "update userdetails set name=?, address=?, phone=?, email=?, password=?, type=? where id=?";	
+			console.log(sql);
+			db.execute(sql, [user.username, user.address, user.phone , user.email ,user.password ,user.type ,user.id], function(status){
 				callback(status);
 			});
 		

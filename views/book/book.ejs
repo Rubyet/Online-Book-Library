@@ -19,8 +19,19 @@
 			<input type="submit" name= "submit" value="Search">
 		</form>
 	  </li>
-	  <li><a href="/login"><span>Signin</span></a></li>
-	  <li> <a href="/user/reg"><span>Signup</span></a></li>
+	  <%if(id1>0)
+			{
+			%>	
+				<li><a href="/user/profile/<%= id1 %>"><span>profile</span></a></li>
+				<li><a href="/logout"><span>Signout</span></a></li>
+			<%
+			}else
+			{
+			%>	<li><a href="/login"><span>Signin</span></a></li>
+				<li> <a href="/user/reg"><span>Signup</span></a></li>
+			<%
+			}
+		%>
 	</ul>
 	</div>
 	</div>
@@ -56,7 +67,7 @@
 	</div>
 	<div class="footer-right">
 	<ul>
-	  <li><a href="index.html">Home</a>/</li>
+	  <li><a href="/home">Home</a>/</li>
 	  <li><a href="#">Go to Top</a>/</li>
 	  <li><a href="#">About</a></li>
 	</ul>
