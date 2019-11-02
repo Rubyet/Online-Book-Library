@@ -9,6 +9,7 @@ var login  		= require('./controllers/login');
 var logout  	= require('./controllers/logout');
 var app 		= express();
 var authentication = require('./controllers/authentication');
+var blog = require('./controllers/blog');
 
 //CONGIFURATION
 app.set('view engine', 'ejs');
@@ -23,10 +24,12 @@ app.use('/user', user);
 app.use('/login', login);
 app.use('/logout', logout);
 app.use(authentication);
+app.use(blog);
 
 //ROUTING
 app.get('/', function(req, res){
 	console.log(req.session.username);
+	console.log(req.session.userId);
 	res.send('<h2>hello from express</h2>');
 });
 

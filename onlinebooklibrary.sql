@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 01, 2019 at 10:58 PM
+-- Generation Time: Nov 02, 2019 at 07:58 AM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.1.30
 
@@ -31,9 +31,20 @@ SET time_zone = "+00:00";
 CREATE TABLE `blog` (
   `id` int(11) NOT NULL,
   `userId` int(11) NOT NULL,
+  `title` varchar(100) NOT NULL,
   `date` datetime NOT NULL DEFAULT current_timestamp(),
   `details` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `blog`
+--
+
+INSERT INTO `blog` (`id`, `userId`, `title`, `date`, `details`) VALUES
+(2, 2, 'Basic Mathematics', '2019-11-02 05:29:40', 'weq'),
+(4, 2, 'qweqwe', '2019-11-02 05:54:03', 'ASDFsdag'),
+(5, 2, 'errtt', '2019-11-02 05:54:10', 'adsfvdvsg'),
+(6, 5, 'jahan', '2019-11-02 07:09:44', 'something');
 
 -- --------------------------------------------------------
 
@@ -62,8 +73,19 @@ CREATE TABLE `comment` (
   `userId` int(11) NOT NULL,
   `blogId` int(11) NOT NULL,
   `date` datetime NOT NULL DEFAULT current_timestamp(),
-  `details` varchar(1000) NOT NULL
+  `details` varchar(1000) NOT NULL,
+  `username` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `comment`
+--
+
+INSERT INTO `comment` (`id`, `userId`, `blogId`, `date`, `details`, `username`) VALUES
+(1, 2, 2, '2019-11-02 12:22:54', 'asdert', 'samin'),
+(2, 2, 2, '2019-11-02 12:24:54', 'asdert', 'samin'),
+(3, 2, 5, '2019-11-02 12:25:42', '3rd', 'samin'),
+(4, 2, 5, '2019-11-02 12:43:53', 'hiii', 'samin');
 
 -- --------------------------------------------------------
 
@@ -139,7 +161,11 @@ CREATE TABLE `userdetails` (
 
 INSERT INTO `userdetails` (`id`, `name`, `address`, `phone`, `email`, `password`, `type`, `preference`, `image`) VALUES
 (1, 'Sharmin', '39, Bir Uttam C.R Dutta Road Dhaka, Bangladesh', '01953446666', 'mrbean@gmail.com', '123', 'member', 'null', 'null'),
-(2, 'samin', '39, Bir Uttam C.R Dutta Road Dhaka, Bangladesh', '01953446666', 'rupak@gmail.com', '1234', 'member', 'null', 'null');
+(2, 'samin', '39, Bir Uttam C.R Dutta Road Dhaka, Bangladesh', '01953446666', 'rupak@gmail.com', '1234', 'member', 'null', 'null'),
+(3, 'Shakil', 'shakil', '1234', 'mrbean@gmail.com', '123', 'member', 'null', 'null'),
+(4, 'shakil', 'random', '11111', 'mrbean@gmail.com', 'shakil', 'member', 'null', 'null'),
+(5, 'jahan', 'random', '2222', 'mrbean@gmail.com', 'jahan', 'member', 'null', 'null'),
+(6, 'borshon', '121,Ibrahimpur Primary School Road, Mirpur-14,Dhaka', '33333', 'mrbean@gmail.com', 'borshon', 'moderator', 'null', 'null');
 
 --
 -- Indexes for dumped tables
@@ -207,7 +233,7 @@ ALTER TABLE `userdetails`
 -- AUTO_INCREMENT for table `blog`
 --
 ALTER TABLE `blog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `bookdetails`
@@ -219,7 +245,7 @@ ALTER TABLE `bookdetails`
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `donate`
@@ -249,7 +275,7 @@ ALTER TABLE `slider`
 -- AUTO_INCREMENT for table `userdetails`
 --
 ALTER TABLE `userdetails`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables

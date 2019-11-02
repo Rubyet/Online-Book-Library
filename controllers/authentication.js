@@ -20,7 +20,7 @@ router.post('/register',function(req,res){
     {
         console.log('pass doesnt match');
     }
-    res.redirect('/register');
+    res.redirect('/auth');
 })
 
 router.get('/auth',function(req,res){
