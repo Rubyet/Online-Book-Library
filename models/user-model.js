@@ -40,10 +40,8 @@ module.exports={
 		});
 	},
 	insert : function(user, callback){
-		console.log("user :"+user.username + user.type);
 		var sql = "INSERT INTO `userdetails` VALUES (NULL, '"+user.username+"', '"+user.address+"', '"+user.phone+"', '"+user.email+"', '"+user.password+"', '"+user.type+"', NULL, '"+user.image+"')";
 		db.execute(sql,[], function(status){
-			console.log(sql);
 			callback(status);
 		});
 	},

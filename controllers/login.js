@@ -15,7 +15,6 @@ router.post('/', function(req, res){
 	}
 
 	userModel.validate(user, function(status,id){
-		console.log("it came here");
 		if(status){
 			res.cookie('username', req.body.username);
 			res.cookie('id', id);

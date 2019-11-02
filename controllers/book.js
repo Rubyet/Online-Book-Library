@@ -48,11 +48,17 @@ router.get('/booksearch/:id', function(req, res){
 		console.log("Sending value as id "+req.params.id);
 		bookModel.getAllById(req.params.id, function(result){
 			
-			console.log(result);
-			res.render('search/index', {book: result});
+		res.render('search/index', {book: result});
 			
 		
 	});
 });
+
+router.get('/:name', function(req, res){
+  const file = `${__dirname}/upload/name`;
+  res.download(file); 
+  
+});
+
 
 module.exports = router;

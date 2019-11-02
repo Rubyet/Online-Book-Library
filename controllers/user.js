@@ -36,32 +36,36 @@ router.get('/reg', function(req, res){
 });
 
 var storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-	  
-    cb(null, 'upload/image/')
-  },
-  filename: function (req, file, cb) {
-    cb(null, file.originalname)
-  }
-})
-console.log(storage);
-var upload = multer({ storage: storage });
+    destination: function (req, file, cb) {
+        cb(null, 'upload/image/')
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now()+file.originalname)
+    }
+});
 
+var upload = multer({ storage: storage }).single('image');
 
 router.post('/reg',function(req, res){
-	console.log(req.body.type);
 	var user = {
 		username: req.body.username,
 		address: req.body.address,
 		phone: req.body.phone,
 		email: req.body.email,
 		password: req.body.password,
-		image : req.body.image,
+		image : Date.now()+req.body.image,
 		type: req.body.type
 		
 	};
+	upload(req, res, function (err) {
+        if (err) {
+            console.log( "An error occurred when uploading" );
+        }
+    })
 	userModel.insert(user, function(status){
 		if(status){
+			
+	
 			res.redirect('/Home');
 		}else{
 			console.log("error in sql");
@@ -69,6 +73,12 @@ router.post('/reg',function(req, res){
 		}
 	});
 });
+
+
+
+
+
+
 
 router.get('/edit/:id', function(req, res){
 
