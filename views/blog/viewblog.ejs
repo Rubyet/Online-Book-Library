@@ -17,10 +17,16 @@
     <div class="card" style="width: 100%;">
         <div class="card-body">
             <h5 class="card-title"><%= blog.title %></h5>
+<<<<<<< HEAD
             <p class="float-right"><%= blog.date %></p>
             <p class="card-text"><%= blog.details %></p>
             <a href="/blog/view/<%=blog.id%>" class="btn btn-primary">View</a>
             
+=======
+            <p class="card-text"><%= blog.details %></p>
+            <a href="#" class="btn btn-primary">View</a>
+            <a href="/blog/delete/<%=blog.id%>" class="btn btn-danger">Delete</a>
+>>>>>>> d37365138c18730ab90660381d98116749395a1a
         </div>
     </div>
     <br>

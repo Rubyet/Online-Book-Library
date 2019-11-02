@@ -41,6 +41,7 @@ exports.deleteblog = function(req,res){
     else{
         res.redirect('/auth');
     }
+<<<<<<< HEAD
 
 
 }
@@ -87,4 +88,6 @@ exports.viewcomment = function(req,res){
     else{
         res.redirect('/auth');
     }
+=======
+>>>>>>> d37365138c18730ab90660381d98116749395a1a
 }
