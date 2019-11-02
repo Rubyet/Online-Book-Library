@@ -15,6 +15,7 @@ exports.auth = function (req,res) {
         {
             req.session.loggedin = true;
             req.session.username = req.body.name;
+            req.session.userId = results[0].id;
             res.redirect('/')
         }
         else
