@@ -40,7 +40,7 @@ var storage = multer.diskStorage({
         cb(null, 'upload/image/')
     },
     filename: function (req, file, cb) {
-        cb(null, file.originalname)
+        cb(null, file.fieldname)
     }
 });
 
@@ -62,6 +62,10 @@ router.post('/reg',function(req, res){
         if (err) {
             console.log( "An error occurred when uploading" );
         }
+		else
+		{
+			
+		}
     })
 	userModel.insert(user, function(status){
 		if(status){
